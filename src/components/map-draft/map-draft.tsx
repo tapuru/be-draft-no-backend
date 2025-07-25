@@ -1,7 +1,6 @@
 import { Card, Flex, Typography } from "antd";
 import s from "./map-draft.module.css";
 import {
-  useActions,
   useSelectAvailableMaps,
   useSelectCurrentTeamIndex,
   useSelectPickedMaps,
