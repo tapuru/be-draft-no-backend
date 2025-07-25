@@ -36,7 +36,10 @@ export const TeamDraft = ({ index }: { index: 0 | 1 }) => {
         {filledPicks.map((character, i) =>
           character ? (
             <div className={s.pickSquare} key={i}>
-              <img alt="example" src="/src/assets/4ByP3hRLEZo.jpg" />
+              <img
+                alt="example"
+                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpeg`}
+              />
               <span className={s.overlayName}>{character.id}</span>
             </div>
           ) : (
@@ -57,7 +60,10 @@ export const TeamDraft = ({ index }: { index: 0 | 1 }) => {
             >
               {character !== "empty" && (
                 <>
-                  <img alt="example" src="/src/assets/4ByP3hRLEZo.jpg" />
+                  <img
+                    alt="example"
+                    src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpeg`}
+                  />
                   <span className={s.overlayName}>{character.id}</span>
                 </>
               )}

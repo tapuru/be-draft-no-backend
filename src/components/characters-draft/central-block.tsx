@@ -264,7 +264,12 @@ export const CentralBlock = () => {
                 s._disabled,
             )}
             style={{ width: 128 }}
-            cover={<img alt="example" src="/src/assets/4ByP3hRLEZo.jpg" />}
+            cover={
+              <img
+                alt="example"
+                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpeg`}
+              />
+            }
             key={character.id}
             onClick={() => handleCharacterClick(character)}
           >
