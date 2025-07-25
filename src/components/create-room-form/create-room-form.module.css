@@ -1,0 +1,14 @@
+.root {
+  height: 100vh;
+}
+
+.card {
+  padding: 24px;
+}
+
+.form {
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

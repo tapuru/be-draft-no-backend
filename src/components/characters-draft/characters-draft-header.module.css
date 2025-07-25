@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #0a0a0a;
+  height: 60px;
+}
+
+.left,
+.center,
+.right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.backButton {
+  color: #ffffff;
+}
+
+.team {
+  color: #ccc;
+}
+
+.score {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 6px;
+}
+
+.scoreBlue {
+  color: var(--color-blue);
+}
+
+.scoreRed {
+  color: var(--color-red);
+}
+
+.mapTitle {
+  color: #aaa;
+  font-size: 14px;
+}

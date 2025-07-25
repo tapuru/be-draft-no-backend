@@ -1,0 +1,8 @@
+.flex {
+  height: calc(100vh - 60px);
+  padding: 40px;
+}
+
+.charactersList {
+  height: 1000px;
+}

@@ -1,0 +1,8 @@
+@import "./reset.css";
+@import "./vars.css";
+@import "./colors.css";
+
+body {
+  /* background-color: #2a2a2a; */
+  background-color: #0e0e0e;
+}
