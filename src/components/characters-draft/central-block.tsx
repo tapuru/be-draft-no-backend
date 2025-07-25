@@ -267,7 +267,7 @@ export const CentralBlock = () => {
             cover={
               <img
                 alt="example"
-                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpeg`}
+                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpg`}
               />
             }
             key={character.id}

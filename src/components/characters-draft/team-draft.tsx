@@ -38,7 +38,7 @@ export const TeamDraft = ({ index }: { index: 0 | 1 }) => {
             <div className={s.pickSquare} key={i}>
               <img
                 alt="example"
-                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpeg`}
+                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpg`}
               />
               <span className={s.overlayName}>{character.id}</span>
             </div>
@@ -62,7 +62,7 @@ export const TeamDraft = ({ index }: { index: 0 | 1 }) => {
                 <>
                   <img
                     alt="example"
-                    src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpeg`}
+                    src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpg`}
                   />
                   <span className={s.overlayName}>{character.id}</span>
                 </>
