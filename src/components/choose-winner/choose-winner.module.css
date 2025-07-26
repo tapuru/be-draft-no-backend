@@ -1,0 +1,38 @@
+.card {
+  text-align: center;
+  padding: 24px;
+}
+
+.winners {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 140px;
+  height: 140px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #1c1c1c;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--basic-transition);
+}
+
+.winner:hover {
+  transform: translateY(-5px);
+}
+
+.winner._red:hover {
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+}
+.winner._blue:hover {
+  color: var(--color-blue);
+  border: 2px solid var(--color-blue);
+}
