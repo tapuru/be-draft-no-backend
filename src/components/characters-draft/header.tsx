@@ -61,7 +61,9 @@ export const Header = () => {
       <div className={s.right}>
         <Typography.Text className={s.mapTitle}>
           Карта {round + 1}:{" "}
-          <Typography.Text style={{ fontSize: "20px", fontWeight: 900 }}>
+          <Typography.Text
+            style={{ fontSize: "20px", fontWeight: 900, marginLeft: 2 }}
+          >
             {pickedMaps[round].name}
           </Typography.Text>
         </Typography.Text>

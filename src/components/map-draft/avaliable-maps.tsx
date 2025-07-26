@@ -3,6 +3,7 @@ import s from "./map-draft.module.css";
 import {
   useActions,
   useSelectAvailableMaps,
+  useSelectCurrentTeamIndex,
   useSelectPickedMaps,
 } from "../../model";
 import clsx from "clsx";
@@ -10,6 +11,7 @@ import { STAGE, type Map } from "../../lib";
 
 export const AvailableMaps = () => {
   const availableMaps = useSelectAvailableMaps();
+  const currentTeamIndex = useSelectCurrentTeamIndex();
   const { pickMap, toggleCurrentTeamIndex, switchStage } = useActions();
   const pickedMaps = useSelectPickedMaps();
 
@@ -33,7 +35,10 @@ export const AvailableMaps = () => {
           <Card
             size="small"
             hoverable
-            className={clsx(s.mapCard)}
+            className={clsx(
+              s.mapCard,
+              currentTeamIndex === 0 ? s._blue : s._red,
+            )}
             style={{ width: 180 }}
             cover={
               <img

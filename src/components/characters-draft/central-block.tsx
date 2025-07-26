@@ -266,6 +266,7 @@ export const CentralBlock = () => {
                 stage === STAGE.CHARACTERS_DRAFT_PENDING ||
                 stage === STAGE.GAME) &&
                 s._disabled,
+              currentTeamIndex === 0 ? s._blue : s._red,
             )}
             style={{ width: 128 }}
             cover={

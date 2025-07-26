@@ -66,12 +66,19 @@
 }
 
 .characterCard:hover {
-  border: 2px solid gray;
+  border: 2px solid #c1c1c1;
   transform: translateY(-5px);
 }
 
-.characterCard._selected {
+.characterCard._selected._blue {
   box-shadow: 0px 0px 10px var(--color-blue);
+  border: 2px solid var(--color-blue);
+  transform: translateY(-5px);
+}
+
+.characterCard._selected._red {
+  box-shadow: 0px 0px 10px var(--color-red);
+  border: 2px solid var(--color-red);
   transform: translateY(-5px);
 }
 

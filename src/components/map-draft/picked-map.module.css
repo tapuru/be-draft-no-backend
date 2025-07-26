@@ -1,0 +1,41 @@
+.pickedMapCard {
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition:
+    border-color 0.3s ease,
+    opacity 0.3s ease;
+  min-width: 220px;
+}
+
+.pickedMapCard._active._blue {
+  border-color: var(--color-blue);
+}
+.pickedMapCard._active._red {
+  border-color: var(--color-red);
+}
+
+.pickedMapCard._pending {
+  opacity: 0.5;
+}
+
+.leftText {
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.rightText {
+  font-size: 18px;
+}
+
+._active._blue .rightText {
+  color: var(--color-blue);
+}
+
+._active._red .rightText {
+  color: var(--color-red);
+}

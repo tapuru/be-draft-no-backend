@@ -1,7 +1,6 @@
 import { Card, Flex, Typography } from "antd";
 import s from "./map-draft.module.css";
 import {
-  useSelectAvailableMaps,
   useSelectCurrentTeamIndex,
   useSelectPickedMaps,
   useSelectTeams,
@@ -14,30 +13,38 @@ export const MapDraft = () => {
   const currentTeamIndex = useSelectCurrentTeamIndex();
   const teams = useSelectTeams();
   const pickedMaps = useSelectPickedMaps();
-  const availableMaps = useSelectAvailableMaps();
 
   return (
     <Flex align="center" justify="center" className={s.root}>
       <div className={s.content}>
         <Card className={clsx(s.card, s.top)}>
           <Typography.Title>Выбор карт</Typography.Title>
-          <Typography style={{ fontSize: 18 }}>
-            {" "}
-            Сейчас выбирают {teams[currentTeamIndex].name}{" "}
+          <Typography className={s.currentTeam}>
+            Сейчас выбирают{" "}
+            <Typography.Text
+              className={clsx(
+                s.currentTeam,
+                currentTeamIndex === 0 ? s._blue : s._red,
+              )}
+            >
+              {teams[currentTeamIndex].name}
+            </Typography.Text>
           </Typography>
         </Card>
         <Flex gap={"18px"}>
           <Card className={clsx(s.card, s.bottomCard)}>
             <Typography.Title level={3}>Выбранные карты</Typography.Title>
-            {[0, 1, 2].map((i) => (
-              <PickedMapCard
-                i={i}
-                name={pickedMaps[i]?.name ?? undefined}
-                key={i}
-              />
-            ))}
+            <div className={s.pickedMaps}>
+              {[0, 1, 2].map((i) => (
+                <PickedMapCard
+                  i={i}
+                  name={pickedMaps[i]?.name ?? undefined}
+                  key={i}
+                />
+              ))}
+            </div>
           </Card>
-          {availableMaps.length > 1 && <AvailableMaps />}
+          <AvailableMaps />
         </Flex>
       </div>
     </Flex>
