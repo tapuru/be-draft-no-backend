@@ -233,7 +233,7 @@ export const CentralBlock = () => {
                   onClick={handleSubmitAction}
                 >
                   {selectedCharacters.length > 0
-                    ? `Выбрать: ${selectedCharacters.map((c) => c.id).join(", ")}`
+                    ? `Выбрать: ${selectedCharacters.map((c) => c.name).join(", ")}`
                     : "Персонаж не выбран"}
                 </Button>
               )}
