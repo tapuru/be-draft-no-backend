@@ -160,9 +160,9 @@ export const useAppStore = create<AppState>()(
                         }
                       })
                       .includes(c.id) ||
-                    c.id.toLowerCase() === "алиса" ||
-                    c.id.toLowerCase() === "ворон" ||
-                    c.id.toLowerCase() === "драгун",
+                    c.id.toLowerCase() === "alice" ||
+                    c.id.toLowerCase() === "raven" ||
+                    c.id.toLowerCase() === "dragoon",
                 );
               } else {
                 t.availableCharacters = t.availableCharacters.filter(

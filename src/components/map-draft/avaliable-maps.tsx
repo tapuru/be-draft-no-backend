@@ -43,7 +43,7 @@ export const AvailableMaps = () => {
             cover={
               <img
                 alt="example"
-                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpg`}
+                src={`${import.meta.env.BASE_URL}assets/maps/${map.name}.png`}
               />
             }
             onClick={() => handlePickMap(map)}

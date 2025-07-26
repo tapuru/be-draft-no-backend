@@ -17,7 +17,7 @@ export const MapDraft = () => {
   return (
     <Flex align="center" justify="center" className={s.root}>
       <div className={s.content}>
-        <Card className={clsx(s.card, s.top)}>
+        <Card className={clsx(s.card, s.top)} size="small">
           <Typography.Title>Выбор карт</Typography.Title>
           <Typography className={s.currentTeam}>
             Сейчас выбирают{" "}

@@ -11,6 +11,13 @@
   text-align: center;
 }
 
+.characters {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  justify-content: center;
+}
+
 .picks {
   display: flex;
   flex-direction: column;
@@ -22,7 +29,7 @@
 .pickSquare {
   width: 110px;
   height: 110px;
-  background-color: #555;
+  background-color: #222;
   border-radius: 8px;
   object-fit: cover;
   position: relative;
@@ -32,13 +39,14 @@
 .bans {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   gap: 8px;
 }
 
 .banSquare {
-  width: 55px;
-  height: 55px;
-  background-color: #555;
+  width: 75px;
+  height: 75px;
+  background-color: #222;
   border-radius: 4px;
   object-fit: cover;
   position: relative;
@@ -53,14 +61,18 @@
   border-radius: 8px;
 }
 
+.banSquare img {
+  filter: grayscale(100%);
+}
+
 .pickSquare::before {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   z-index: 1;
 }
 
@@ -83,8 +95,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70%; /* taller gradient for small square */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   z-index: 1;
 }
 
@@ -103,7 +115,7 @@
 
 .banSquare._empty {
   border: 1px dashed var(--color-red);
-  background-color: rgba(255, 0, 0, 0.1); /* light red background */
+  background-color: rgba(255, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,21 +125,6 @@
   opacity: 0.8;
 }
 
-/* .overlayName { */
-/*   position: absolute; */
-/*   bottom: 0; */
-/*   left: 0; */
-/*   width: 100%; */
-/*   background: rgba(0, 0, 0, 0.6); /* shaded backdrop */
-/*   color: #fff; */
-/*   font-size: 12px; */
-/*   text-align: center; */
-/*   padding: 2px 4px; */
-/*   box-sizing: border-box; */
-/*   border-bottom-left-radius: 8px; */
-/*   border-bottom-right-radius: 8px; */
-/* } */
-
 .teamName.red {
   color: var(--color-red);
 }
@@ -136,6 +133,5 @@
   color: var(--color-blue);
 }
 .placeholder {
-  opacity: 0.2;
-  border: 1px dashed #ccc;
+  /* border: 1px dashed #ccc; */
 }

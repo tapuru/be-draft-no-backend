@@ -268,18 +268,21 @@ export const CentralBlock = () => {
                 s._disabled,
               currentTeamIndex === 0 ? s._blue : s._red,
             )}
-            style={{ width: 128 }}
-            cover={
-              <img
-                alt="example"
-                src={`${import.meta.env.BASE_URL}assets/4ByP3hRLEZo.jpg`}
-              />
-            }
+            style={{ width: 128, padding: 0 }}
             key={character.id}
             onClick={() => handleCharacterClick(character)}
-          >
-            <Card.Meta title={character.id} />
-          </Card>
+            cover={
+              <div className={s.characterImageWrapper}>
+                <img
+                  alt={character.name}
+                  src={`${import.meta.env.BASE_URL}assets/characters/${character.id}.png`}
+                  className={s.characterImage}
+                />
+                <div className={s.characterOverlay} />
+                <div className={s.characterName}>{character.name}</div>
+              </div>
+            }
+          />
         ))}
       </div>
     </div>

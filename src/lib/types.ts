@@ -30,6 +30,7 @@ export type Map = {
 
 export type Character = {
   id: string;
+  name: string;
   image_url: string;
   type: CHARACTER_TYPE;
 };

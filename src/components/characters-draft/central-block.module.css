@@ -63,31 +63,79 @@
 
 .characterCard {
   transition: var(--basic-transition);
+  overflow: hidden;
 }
 
 .characterCard:hover {
   border: 2px solid #c1c1c1;
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
+  margin-top: -5px;
 }
 
 .characterCard._selected._blue {
   box-shadow: 0px 0px 10px var(--color-blue);
   border: 2px solid var(--color-blue);
-  transform: translateY(-5px);
+  margin-top: -5px;
 }
 
 .characterCard._selected._red {
   box-shadow: 0px 0px 10px var(--color-red);
   border: 2px solid var(--color-red);
-  transform: translateY(-5px);
+  margin-top: -5px;
 }
 
 .characterCard._disabled {
   pointer-events: none;
   opacity: 50%;
 }
+.characterCard._disabled img {
+  filter: grayscale(100%);
+}
 
 .currentAction {
   display: flex;
   gap: 8px;
+}
+.characterImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 128px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.characterImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.characterOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  z-index: 1;
+}
+
+.characterName {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.characterCard :global(.ant-card-body) {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
 }

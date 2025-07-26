@@ -14,9 +14,12 @@
 
 .pickedMapCard._active._blue {
   border-color: var(--color-blue);
+  box-shadow: 0px 0px 10px var(--color-blue);
 }
 .pickedMapCard._active._red {
   border-color: var(--color-red);
+
+  box-shadow: 0px 0px 10px var(--color-red);
 }
 
 .pickedMapCard._pending {
