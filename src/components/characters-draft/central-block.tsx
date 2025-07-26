@@ -94,8 +94,12 @@ export const CentralBlock = () => {
         });
 
         toggleCurrentTeamIndex();
-        setCurrentDraftStage(currentDraftStage + 1);
         setSelectedCharacters([]);
+        if (currentDraftStage === DRAFT_ACTIONS.length - 1) {
+          switchStage(STAGE.GAME);
+        } else {
+          setCurrentDraftStage(currentDraftStage + 1);
+        }
       }
     }, 1000);
 
