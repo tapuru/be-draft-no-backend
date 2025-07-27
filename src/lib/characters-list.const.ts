@@ -2,48 +2,6 @@ import { CHARACTER_TYPE, type Character } from "./types";
 
 export const CHARACTERS_LIST: Character[] = [
   {
-    id: "satoshi",
-    name: "сатоши",
-    image_url: `${import.meta.env.BASE_URL}assets/satoshi.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
-    id: "vi",
-    name: "ви",
-    image_url: `${import.meta.env.BASE_URL}assets/vi.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
-    id: "levi",
-    name: "леви",
-    image_url: `${import.meta.env.BASE_URL}assets/levi.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
-    id: "doc",
-    name: "док",
-    image_url: `${import.meta.env.BASE_URL}assets/doc.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
-    id: "stalker",
-    name: "сталкер",
-    image_url: `${import.meta.env.BASE_URL}assets/stalker.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
-    id: "tess",
-    name: "тесс",
-    image_url: `${import.meta.env.BASE_URL}assets/tess.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
-    id: "graviel",
-    name: "гравиель",
-    image_url: `${import.meta.env.BASE_URL}assets/graviel.png`,
-    type: CHARACTER_TYPE.TROOPER,
-  },
-  {
     id: "arnie",
     name: "арни",
     image_url: `${import.meta.env.BASE_URL}assets/arnie.png`,
@@ -115,6 +73,7 @@ export const CHARACTERS_LIST: Character[] = [
     image_url: `${import.meta.env.BASE_URL}assets/twinkle.png`,
     type: CHARACTER_TYPE.SCOUT,
   },
+
   {
     id: "blot",
     name: "блот",
@@ -192,5 +151,48 @@ export const CHARACTERS_LIST: Character[] = [
     name: "квон",
     image_url: `${import.meta.env.BASE_URL}assets/kwon.png`,
     type: CHARACTER_TYPE.TANK,
+  },
+  {
+    id: "stalker",
+    name: "сталкер",
+    image_url: `${import.meta.env.BASE_URL}assets/stalker.png`,
+    type: CHARACTER_TYPE.TROOPER,
+  },
+  {
+    id: "doc",
+    name: "док",
+    image_url: `${import.meta.env.BASE_URL}assets/doc.png`,
+    type: CHARACTER_TYPE.TROOPER,
+  },
+  {
+    id: "levi",
+    name: "леви",
+    image_url: `${import.meta.env.BASE_URL}assets/levi.png`,
+    type: CHARACTER_TYPE.TROOPER,
+  },
+  {
+    id: "satoshi",
+    name: "сатоши",
+    image_url: `${import.meta.env.BASE_URL}assets/satoshi.png`,
+    type: CHARACTER_TYPE.TROOPER,
+  },
+  {
+    id: "tess",
+    name: "тесс",
+    image_url: `${import.meta.env.BASE_URL}assets/tess.png`,
+    type: CHARACTER_TYPE.TROOPER,
+  },
+  {
+    id: "vi",
+    name: "ви",
+    image_url: `${import.meta.env.BASE_URL}assets/vi.png`,
+    type: CHARACTER_TYPE.TROOPER,
+  },
+
+  {
+    id: "graviel",
+    name: "гравиель",
+    image_url: `${import.meta.env.BASE_URL}assets/graviel.png`,
+    type: CHARACTER_TYPE.TROOPER,
   },
 ];
