@@ -158,11 +158,11 @@ export const CentralBlock = () => {
       type: currentAction,
       teamIndex: currentTeamIndex,
     });
-    toggleCurrentTeamIndex();
     setSelectedCharacters([]);
     if (currentDraftStage === DRAFT_ACTIONS.length - 1) {
       switchStage(STAGE.GAME);
     } else {
+      toggleCurrentTeamIndex();
       setCurrentDraftStage(currentDraftStage + 1);
     }
   };
