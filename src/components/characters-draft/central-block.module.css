@@ -139,3 +139,18 @@
   padding: 0;
   overflow: hidden;
 }
+
+.mapWrapper {
+  max-width: 580px;
+  object-fit: cover;
+  align-self: center;
+  border-radius: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mapWrapper > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}

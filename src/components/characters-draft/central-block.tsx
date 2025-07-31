@@ -12,6 +12,8 @@ import {
   useActions,
   useSelectCurrentDraftStage,
   useSelectCurrentTeamIndex,
+  useSelectPickedMaps,
+  useSelectRound,
   useSelectSelectedCharacters,
   useSelectStage,
   useSelectTeams,
@@ -26,6 +28,8 @@ export const CentralBlock = () => {
   const stage = useSelectStage();
   const selectedCharacters = useSelectSelectedCharacters();
   const defaultTimer = useSelectTimer();
+  const pickedMaps = useSelectPickedMaps();
+  const round = useSelectRound();
 
   const {
     switchStage,
@@ -212,7 +216,7 @@ export const CentralBlock = () => {
                 </>
               ) : (
                 <Typography.Text className={clsx(s.text)}>
-                  Идёт игра
+                  Драфт завершён
                 </Typography.Text>
               )}
             </div>
@@ -264,40 +268,51 @@ export const CentralBlock = () => {
         </Card>
       </div>
 
-      <div className={s.charactersList}>
-        {CHARACTERS_LIST.map((character) => (
-          <Card
-            size="small"
-            hoverable
-            className={clsx(
-              s.characterCard,
-              selectedCharacters.map((c) => c.id).includes(character.id) &&
-                s._selected,
-              (!teams[currentTeamIndex].availableCharacters
-                .map((c) => c.id)
-                .includes(character.id) ||
-                stage === STAGE.CHARACTERS_DRAFT_PENDING ||
-                stage === STAGE.GAME) &&
-                s._disabled,
-              currentTeamIndex === 0 ? s._blue : s._red,
-            )}
-            style={{ width: 128, padding: 0 }}
-            key={character.id}
-            onClick={() => handleCharacterClick(character)}
-            cover={
-              <div className={s.characterImageWrapper}>
-                <img
-                  alt={character.name}
-                  src={`${import.meta.env.BASE_URL}assets/characters/${character.id}.png`}
-                  className={s.characterImage}
-                />
-                <div className={s.characterOverlay} />
-                <div className={s.characterName}>{character.name}</div>
-              </div>
-            }
+      {stage === STAGE.GAME && (
+        <div className={s.mapWrapper}>
+          <img
+            alt={pickedMaps[round].name}
+            src={`${import.meta.env.BASE_URL}assets/maps/${pickedMaps[round].name}.png`}
           />
-        ))}
-      </div>
+        </div>
+      )}
+
+      {(stage === STAGE.CHARACTERS_DRAFT ||
+        stage === STAGE.CHARACTERS_DRAFT_PENDING) && (
+        <div className={s.charactersList}>
+          {CHARACTERS_LIST.map((character) => (
+            <Card
+              size="small"
+              hoverable
+              className={clsx(
+                s.characterCard,
+                selectedCharacters.map((c) => c.id).includes(character.id) &&
+                  s._selected,
+                (!teams[currentTeamIndex].availableCharacters
+                  .map((c) => c.id)
+                  .includes(character.id) ||
+                  stage === STAGE.CHARACTERS_DRAFT_PENDING) &&
+                  s._disabled,
+                currentTeamIndex === 0 ? s._blue : s._red,
+              )}
+              style={{ width: 128, padding: 0 }}
+              key={character.id}
+              onClick={() => handleCharacterClick(character)}
+              cover={
+                <div className={s.characterImageWrapper}>
+                  <img
+                    alt={character.name}
+                    src={`${import.meta.env.BASE_URL}assets/characters/${character.id}.png`}
+                    className={s.characterImage}
+                  />
+                  <div className={s.characterOverlay} />
+                  <div className={s.characterName}>{character.name}</div>
+                </div>
+              }
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

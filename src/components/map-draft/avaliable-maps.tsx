@@ -35,6 +35,7 @@ export const AvailableMaps = () => {
           <Card
             size="small"
             hoverable
+            key={map.name}
             className={clsx(
               s.mapCard,
               currentTeamIndex === 0 ? s._blue : s._red,
@@ -42,7 +43,7 @@ export const AvailableMaps = () => {
             style={{ width: 180 }}
             cover={
               <img
-                alt="example"
+                alt={map.name}
                 src={`${import.meta.env.BASE_URL}assets/maps/${map.name}.png`}
               />
             }
