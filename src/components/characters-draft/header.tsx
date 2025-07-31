@@ -27,6 +27,7 @@ export const Header = () => {
   } = useActions();
 
   const handleCancelAction = () => {
+    if (currentDraftStage < 1) return;
     popActionsQueue();
     toggleCurrentTeamIndex();
     setCurrentDraftStage(currentDraftStage - 1);
@@ -44,7 +45,10 @@ export const Header = () => {
           icon={<LeftOutlined />}
           className={s.backButton}
           onClick={handleCancelAction}
-          disabled={stage !== STAGE.CHARACTERS_DRAFT && stage !== STAGE.GAME}
+          disabled={
+            (stage !== STAGE.CHARACTERS_DRAFT && stage !== STAGE.GAME) ||
+            currentDraftStage < 1
+          }
         />
       </div>
 
