@@ -37,6 +37,7 @@ export const CentralBlock = () => {
 
   const [timer, setTimer] = useState(defaultTimer);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const selectedCharactersRef = useRef(selectedCharacters);
 
   useEffect(() => {
     if (stage === STAGE.GAME && intervalRef.current) {
@@ -44,6 +45,10 @@ export const CentralBlock = () => {
       intervalRef.current = null;
     }
   }, [stage]);
+
+  useEffect(() => {
+    selectedCharactersRef.current = selectedCharacters;
+  }, [selectedCharacters]);
 
   useEffect(() => {
     if (stage !== STAGE.CHARACTERS_DRAFT) return;
@@ -65,25 +70,34 @@ export const CentralBlock = () => {
         const currentAction = DRAFT_ACTIONS[currentDraftStage];
         const available = teams[currentTeamIndex].availableCharacters;
 
-        let characters: Array<Character | "empty"> = [];
+        const characters: Array<Character | "empty"> = [
+          ...selectedCharactersRef.current,
+        ];
 
         switch (currentAction) {
           case DRAFT_ACTION_TYPE.BAN:
-            characters = ["empty"];
+            while (characters.length < 1) {
+              characters.push("empty");
+            }
             break;
           case DRAFT_ACTION_TYPE.DOUBLE_BAN:
-            characters = ["empty", "empty"];
+            while (characters.length < 2) {
+              characters.push("empty");
+            }
             break;
           case DRAFT_ACTION_TYPE.PICK:
-            characters = [
-              available[Math.floor(Math.random() * available.length)],
-            ];
+            while (characters.length < 1) {
+              characters.push(
+                available[Math.floor(Math.random() * available.length)],
+              );
+            }
             break;
           case DRAFT_ACTION_TYPE.DOUBLE_PICK:
-            characters = [
-              available[Math.floor(Math.random() * available.length)],
-              available[Math.floor(Math.random() * available.length)],
-            ];
+            while (characters.length < 2) {
+              characters.push(
+                available[Math.floor(Math.random() * available.length)],
+              );
+            }
             break;
         }
 
@@ -95,10 +109,9 @@ export const CentralBlock = () => {
 
         toggleCurrentTeamIndex();
         setSelectedCharacters([]);
-        if (currentDraftStage === DRAFT_ACTIONS.length - 1) {
+        setCurrentDraftStage(currentDraftStage + 1);
+        if (currentDraftStage >= DRAFT_ACTIONS.length - 1) {
           switchStage(STAGE.GAME);
-        } else {
-          setCurrentDraftStage(currentDraftStage + 1);
         }
       }
     }, 1000);
@@ -162,7 +175,6 @@ export const CentralBlock = () => {
     setSelectedCharacters([]);
     setCurrentDraftStage(currentDraftStage + 1);
     if (currentDraftStage >= DRAFT_ACTIONS.length - 1) {
-      console.log("HERE");
       switchStage(STAGE.GAME);
     }
   };
