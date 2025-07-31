@@ -23,6 +23,7 @@ export const Header = () => {
     setSelectedCharacters,
     toggleCurrentTeamIndex,
     setCurrentDraftStage,
+    switchStage,
   } = useActions();
 
   const handleCancelAction = () => {
@@ -30,6 +31,9 @@ export const Header = () => {
     toggleCurrentTeamIndex();
     setCurrentDraftStage(currentDraftStage - 1);
     setSelectedCharacters([]);
+    if (stage === STAGE.GAME) {
+      switchStage(STAGE.CHARACTERS_DRAFT);
+    }
   };
 
   return (
@@ -40,7 +44,7 @@ export const Header = () => {
           icon={<LeftOutlined />}
           className={s.backButton}
           onClick={handleCancelAction}
-          disabled={stage !== STAGE.CHARACTERS_DRAFT}
+          disabled={stage !== STAGE.CHARACTERS_DRAFT && stage !== STAGE.GAME}
         />
       </div>
 

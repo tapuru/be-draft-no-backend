@@ -158,17 +158,18 @@ export const CentralBlock = () => {
       type: currentAction,
       teamIndex: currentTeamIndex,
     });
+    toggleCurrentTeamIndex();
     setSelectedCharacters([]);
-    if (currentDraftStage === DRAFT_ACTIONS.length - 1) {
+    setCurrentDraftStage(currentDraftStage + 1);
+    if (currentDraftStage >= DRAFT_ACTIONS.length - 1) {
+      console.log("HERE");
       switchStage(STAGE.GAME);
-    } else {
-      toggleCurrentTeamIndex();
-      setCurrentDraftStage(currentDraftStage + 1);
     }
   };
 
   const handleChooseWinner = () => {
     if (stage !== STAGE.GAME) return;
+    toggleCurrentTeamIndex();
     switchStage(STAGE.CHOOSE_WINNER);
   };
 
